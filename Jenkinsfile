@@ -13,30 +13,23 @@ pipeline {
         }
 
         stage('Build') {
-            steps {
-                dir('maven2'){
-                  sh 'mvn clean package'  // Run Maven build
+            steps{
+                  sh 'mvn clean install'  // Run Maven build
                 }
-            }
         }
 
         stage('Test') {
             steps {
-                  dir('maven2'){
                       sh 'mvn test'  // Run unit tests
                 }
-            }
         }
 
         stage('Run Application') {
             steps {
-                dir('maven2') {
                     sh 'mvn exec:java -Dexec.mainClass="com.example.App.App"'
                 }
-            }
         }
 
-        
     }
 
     post {
