@@ -14,7 +14,7 @@ pipeline {
 
         stage('Build') {
             steps{
-                  sh 'mvn clean install'  // Run Maven build
+                  sh 'mvn clean package'  // Run Maven build
                 }
         }
 
@@ -26,7 +26,7 @@ pipeline {
 
         stage('Run Application') {
             steps {
-                    sh 'mvn exec:java -Dexec.mainClass="com.example.App.App"'
+                    sh 'mvn exec:java -Dexec.mainClass="com.example.App"'
                 }
         }
 
