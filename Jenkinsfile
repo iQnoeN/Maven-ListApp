@@ -27,6 +27,7 @@ pipeline {
         stage('Run Application') {
             steps {
                     sh 'mvn exec:java -Dexec.mainClass="com.example.App.App"'
+                    sh 'cat destination.txt'
                 }
         }
 
